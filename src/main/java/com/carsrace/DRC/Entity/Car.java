@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Cars {
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Cars {
     private Integer horsePower;
 
     @Column
-    private Long accelerationTo100;
+    private Double accelerationTo100;
 
     @Column
     private Integer maxSpeed;
@@ -58,11 +58,11 @@ public class Cars {
         this.horsePower = horsePower;
     }
 
-    public Long getAccelerationTo100() {
+    public Double getAccelerationTo100() {
         return accelerationTo100;
     }
 
-    public void setAccelerationTo100(Long accelerationTo100) {
+    public void setAccelerationTo100(Double accelerationTo100) {
         this.accelerationTo100 = accelerationTo100;
     }
 

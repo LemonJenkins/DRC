@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table
-public class Races {
+public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +15,13 @@ public class Races {
     private Date checkinTime;
 
     @Column
-    private RaceParticipants raceParticipantOne;
+    private RaceParticipant raceParticipantOne;
 
     @Column
-    private RaceParticipants raceParticipantTwo;
+    private RaceParticipant raceParticipantTwo;
 
     @Column
-    private RaceParticipants winner;
+    private RaceParticipant winner;
 
     @Column
     private boolean RaceWasHeld;
@@ -50,27 +50,27 @@ public class Races {
         this.checkinTime = checkinTime;
     }
 
-    public RaceParticipants getRaceParticipantOne() {
+    public RaceParticipant getRaceParticipantOne() {
         return raceParticipantOne;
     }
 
-    public void setRaceParticipantOne(RaceParticipants raceParticipantOne) {
+    public void setRaceParticipantOne(RaceParticipant raceParticipantOne) {
         this.raceParticipantOne = raceParticipantOne;
     }
 
-    public RaceParticipants getRaceParticipantTwo() {
+    public RaceParticipant getRaceParticipantTwo() {
         return raceParticipantTwo;
     }
 
-    public void setRaceParticipantTwo(RaceParticipants raceParticipantTwo) {
+    public void setRaceParticipantTwo(RaceParticipant raceParticipantTwo) {
         this.raceParticipantTwo = raceParticipantTwo;
     }
 
-    public RaceParticipants getWinner() {
+    public RaceParticipant getWinner() {
         return winner;
     }
 
-    public void setWinner(RaceParticipants winner) {
+    public void setWinner(RaceParticipant winner) {
         this.winner = winner;
     }
 }

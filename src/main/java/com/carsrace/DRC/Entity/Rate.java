@@ -4,23 +4,34 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Players {
+public class Rate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
-    private RegisteredUsers registeredUser;
+    private RegisteredUser registeredUser;
 
     @Column
     private Integer rate;
 
     @Column
-    private Races race;
+    private Race race;
 
     @Column
-    private RaceParticipants raceParticipant;
+    private RaceParticipant raceParticipant;
+
+    @Column
+    private Boolean win;
+
+    public Boolean getWin() {
+        return win;
+    }
+
+    public void setWin(Boolean win) {
+        this.win = win;
+    }
 
     public Integer getId() {
         return id;
@@ -30,11 +41,11 @@ public class Players {
         this.id = id;
     }
 
-    public RegisteredUsers getRegisteredUser() {
+    public RegisteredUser getRegisteredUser() {
         return registeredUser;
     }
 
-    public void setRegisteredUser(RegisteredUsers registeredUser) {
+    public void setRegisteredUser(RegisteredUser registeredUser) {
         this.registeredUser = registeredUser;
     }
 
@@ -46,19 +57,19 @@ public class Players {
         this.rate = rate;
     }
 
-    public Races getRace() {
+    public Race getRace() {
         return race;
     }
 
-    public void setRace(Races race) {
+    public void setRace(Race race) {
         this.race = race;
     }
 
-    public RaceParticipants getRaceParticipant() {
+    public RaceParticipant getRaceParticipant() {
         return raceParticipant;
     }
 
-    public void setRaceParticipant(RaceParticipants raceParticipant) {
+    public void setRaceParticipant(RaceParticipant raceParticipant) {
         this.raceParticipant = raceParticipant;
     }
 }

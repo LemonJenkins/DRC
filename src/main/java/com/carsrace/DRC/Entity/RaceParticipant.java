@@ -4,23 +4,23 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class RaceParticipants {
+public class RaceParticipant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
-    private RegisteredUsers registeredUser;
+    private RegisteredUser registeredUser;
 
     @Column
     private Integer DrivingExpiriens;
 
     @Column
-    private Cars car;
+    private Car car;
 
     @Column
-    private Races race;
+    private Race race;
 
     public Integer getId() {
         return id;
@@ -30,11 +30,11 @@ public class RaceParticipants {
         this.id = id;
     }
 
-    public RegisteredUsers getRegisteredUser() {
+    public RegisteredUser getRegisteredUser() {
         return registeredUser;
     }
 
-    public void setRegisteredUser(RegisteredUsers registeredUser) {
+    public void setRegisteredUser(RegisteredUser registeredUser) {
         this.registeredUser = registeredUser;
     }
 
@@ -46,19 +46,19 @@ public class RaceParticipants {
         DrivingExpiriens = drivingExpiriens;
     }
 
-    public Cars getCar() {
+    public Car getCar() {
         return car;
     }
 
-    public void setCar(Cars car) {
+    public void setCar(Car car) {
         this.car = car;
     }
 
-    public Races getRace() {
+    public Race getRace() {
         return race;
     }
 
-    public void setRace(Races race) {
+    public void setRace(Race race) {
         this.race = race;
     }
 }
