@@ -1,10 +1,10 @@
 package com.carsrace.DRC.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table
 public class RegisteredUser {
 
     @Id
@@ -21,13 +21,27 @@ public class RegisteredUser {
     private String nickname;
 
     @Column
-     private Boolean availabilityMachine;
+    private Boolean availabilityMachine;
 
     @Column
     private Integer age;
 
     @Column
     private String pass;
+
+    @Column
+    private String email;
+
+    @OneToMany(mappedBy = "registeredUser")
+    private List<Rate> rates;
+
+    public List<Rate> getRates() {
+        return rates;
+    }
+
+    public void setRates(List<Rate> rates) {
+        this.rates = rates;
+    }
 
     public Integer getId() {
         return id;
@@ -83,5 +97,13 @@ public class RegisteredUser {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -1,15 +1,15 @@
 package com.carsrace.DRC.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer raceId;
 
     @Column
     private String mark;
@@ -26,12 +26,13 @@ public class Car {
     @Column
     private Integer maxSpeed;
 
+
     public Integer getId() {
-        return id;
+        return raceId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.raceId = id;
     }
 
     public String getMark() {

@@ -10,28 +10,21 @@ public class Rate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name="raceParticipantId", nullable=false)
     private RegisteredUser registeredUser;
 
     @Column
     private Integer rate;
 
-    @Column
+    @OneToOne
     private Race race;
 
-    @Column
+    @OneToOne
     private RaceParticipant raceParticipant;
 
     @Column
     private Boolean win;
-
-    public Boolean getWin() {
-        return win;
-    }
-
-    public void setWin(Boolean win) {
-        this.win = win;
-    }
 
     public Integer getId() {
         return id;
@@ -71,5 +64,13 @@ public class Rate {
 
     public void setRaceParticipant(RaceParticipant raceParticipant) {
         this.raceParticipant = raceParticipant;
+    }
+
+    public Boolean getWin() {
+        return win;
+    }
+
+    public void setWin(Boolean win) {
+        this.win = win;
     }
 }

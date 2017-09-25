@@ -8,26 +8,39 @@ public class RaceParticipant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer raceParticipantId;
 
-    @Column
+    @OneToOne
     private RegisteredUser registeredUser;
 
     @Column
     private Integer DrivingExpiriens;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name="carId", nullable=false)
     private Car car;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name="raceId", nullable=false)
     private Race race;
 
+    @OneToOne
+    private Rate rate;
+
+    public Rate getRate() {
+        return rate;
+    }
+
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+
     public Integer getId() {
-        return id;
+        return raceParticipantId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.raceParticipantId = id;
     }
 
     public RegisteredUser getRegisteredUser() {

@@ -2,6 +2,7 @@ package com.carsrace.DRC.Entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table
@@ -9,37 +10,37 @@ public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer raceId;
 
     @Column
     private Date checkinTime;
 
-    @Column
-    private RaceParticipant raceParticipantOne;
+    @OneToMany(mappedBy = "race")
+    private List<RaceParticipant> raceParticipant;
 
     @Column
-    private RaceParticipant raceParticipantTwo;
+    private Integer winner;
 
     @Column
-    private RaceParticipant winner;
+    private boolean raceWasHeld;
 
-    @Column
-    private boolean RaceWasHeld;
+    @OneToOne
+    private Rate rate;
 
-    public boolean getRaceWasHeld() {
-        return RaceWasHeld;
+    public Rate getRate() {
+        return rate;
     }
 
-    public void setRaceWasHeld(boolean raceWasHeld) {
-        RaceWasHeld = raceWasHeld;
+    public void setRate(Rate rate) {
+        this.rate = rate;
     }
 
     public Integer getId() {
-        return id;
+        return raceId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.raceId = id;
     }
 
     public Date getCheckinTime() {
@@ -50,27 +51,27 @@ public class Race {
         this.checkinTime = checkinTime;
     }
 
-    public RaceParticipant getRaceParticipantOne() {
-        return raceParticipantOne;
+    public List<RaceParticipant> getRaceParticipant() {
+        return raceParticipant;
     }
 
-    public void setRaceParticipantOne(RaceParticipant raceParticipantOne) {
-        this.raceParticipantOne = raceParticipantOne;
+    public void setRaceParticipant(List<RaceParticipant> raceParticipant) {
+        this.raceParticipant = raceParticipant;
     }
 
-    public RaceParticipant getRaceParticipantTwo() {
-        return raceParticipantTwo;
-    }
-
-    public void setRaceParticipantTwo(RaceParticipant raceParticipantTwo) {
-        this.raceParticipantTwo = raceParticipantTwo;
-    }
-
-    public RaceParticipant getWinner() {
+    public Integer getWinner() {
         return winner;
     }
 
-    public void setWinner(RaceParticipant winner) {
+    public void setWinner(Integer winner) {
         this.winner = winner;
+    }
+
+    public boolean isRaceWasHeld() {
+        return raceWasHeld;
+    }
+
+    public void setRaceWasHeld(boolean raceWasHeld) {
+        this.raceWasHeld = raceWasHeld;
     }
 }
